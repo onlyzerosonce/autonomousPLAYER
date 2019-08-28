@@ -1,2 +1,2 @@
 # autonomousPLAYER
-Shell scripts to automate the routine
+Shell scripts to automate the routine machine use.
