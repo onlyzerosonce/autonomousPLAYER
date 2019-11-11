@@ -34,3 +34,7 @@ apt install acpi # for power supply related queries.
 apt install xterm
 apt install conky curl lm-sensors hddtemp
 apt install libgnome2-bin
+
+apt install python-pip
+pip install numpy
+pip install pandas
