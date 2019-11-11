@@ -23,7 +23,8 @@ echo -e "	[ When you are done please press ENTER or any other key ] \n"
 
 echo "	"
 
-acpi -a|grep -E 'on-line' >/dev/null 2>&1 || echo "	Please switch on the power supply of the device."
+# commented because it is not needed as of now.
+# acpi -a|grep -E 'on-line' >/dev/null 2>&1 || echo "	Please switch on the power supply of the device."
 
 ##read 
 wmctrl -s 3
