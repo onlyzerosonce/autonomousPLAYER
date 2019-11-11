@@ -1,9 +1,7 @@
 cd .. 
-mv -f autonomousPLAYER/awesome .config/
-mv -f autonomousPLAYER/Thunar .config/
-mv -f autonomousPLAYER/terminator .config/
-mv -f autonomousPLAYER/.bashrc "$HOME"
-mv -f autonomousPLAYER/.bash_aliases "$HOME"
-rm -rf autonomousPLAYER
-rm -rf autonomousPLAYER
-rm -rf autonomousPLAYER
+cp -f autonomousPLAYER/awesome .config/
+cp -f autonomousPLAYER/Thunar .config/
+cp -f autonomousPLAYER/terminator .config/
+cp -f autonomousPLAYER/.bashrc "$HOME"
+cp -f autonomousPLAYER/.bash_aliases "$HOME"
+
