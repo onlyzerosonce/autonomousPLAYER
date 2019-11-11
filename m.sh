@@ -68,7 +68,7 @@ waittillinputorinterrupt1(){
 
 function delfirstandrefillifempty(){
 sed -i '1d' .mplayer_delete_parent
-[ ! -s .mplayer_delete_parent ]&&python /home/v/readingcount.py
+[ ! -s .mplayer_delete_parent ]&&python3 "$HOME"/autonomousPLAYER/readingcount.py
 echo
 }
 
