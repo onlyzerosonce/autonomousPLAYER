@@ -9,7 +9,7 @@ dailypagelimit=10
 
 today=int(datetime.today().strftime('%Y%m%d'))
 
-d=pd.read_csv('/home/v/.readingstats',sep='|')
+d=pd.read_csv('.readingstats',sep='|')
 todaydata=d[d['Date']==today]
 
 todaydata['Category']=todaydata['FileName'].apply(lambda x:x.replace('/2/Downloads/',''))
@@ -33,5 +33,5 @@ final['Pages'] = final.Pages.fillna(0)
 
 todaydata4=final['Category'][final['Pages']<=final['dailypagelimit']].min()
 
-final['Folder'][folder['Category']==todaydata4].to_csv ('/home/v/.mplayer_delete_parent', index = False,header=False)
+final['Folder'][folder['Category']==todaydata4].to_csv ('.mplayer_delete_parent', index = False,header=False)
 
