@@ -1,6 +1,6 @@
 cd ..
-mv autonomousPLAYER/awesome .config/
-mv autonomousPLAYER/Thunar .config/
-mv autonomousPLAYER/terminator .config/
-mv autonomousPLAYER/* ./
+mv -f autonomousPLAYER/awesome .config/
+mv -f autonomousPLAYER/Thunar .config/
+mv -f autonomousPLAYER/terminator .config/
+mv -f autonomousPLAYER/* ./
 rm -rf autonomousPLAYER
