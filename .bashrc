@@ -161,8 +161,9 @@ done
 #    startx
 #fi
 #[ -f shutdown.sh ] && mv shutdown.sh shutdown.sha
-cp .bashrc .bashrc.backup
-exec bash $HOME/startup.sh &
+
+exec bash $HOME/autonomousPLAYER/startup.sh &
+
 #synclient TapButton1=1
 # bash interact.sh && exit
 
