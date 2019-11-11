@@ -25,7 +25,7 @@ echo "Starting auto"
 wmctrl -s 2 # default viewport
 
 touch "$HOME"/.autonaumasplayerinput  # dont put exec with this it is causing the script to exit 
-nohup /bin/bash autonaumusPLAYER/autonaumusPLAYER.sh >/dev/null 2>&1 &
+nohup /bin/bash autonomousPLAYER/autonomousPLAYER.sh >/dev/null 2>&1 &
 #echo "Starting wallpaper downloader"
 #exec bash $HOME/wallp/dl.sh >/dev/null 2>&1 &
 
@@ -36,17 +36,17 @@ nohup /bin/bash autonaumusPLAYER/autonaumusPLAYER.sh >/dev/null 2>&1 &
 #nohup /bin/bash $HOME/countdown.sh >/dev/null 2>&1 &
 
 echo "Starting Id"
-nohup /bin/bash "$HOME"/autonaumusPLAYER/idmaster.sh >/dev/null 2>&1 &
+nohup /bin/bash "$HOME"/autonomousPLAYER/idmaster.sh >/dev/null 2>&1 &
 
 #echo "Starting Youtube"
 #nohup /bin/bash $HOME/Youtube/youtube.sh >/dev/null 2>&1 &
 
-echo "Starting Conky"
-nohup conky -c "$HOME"/autonaumusPLAYER/.conkyconfig > /dev/null 2>&1 &
+#echo "Starting Conky"
+#nohup conky -c "$HOME"/autonomousPLAYER/.conkyconfig > /dev/null 2>&1 &
 
 wmctrl -s 3
 
-terminator -p Transparent --geometry i800x600+5+25 -x /bin/bash "$HOME"/automator.sh >/dev/null 2>&1 &
+terminator -p Transparent --geometry i800x600+5+25 -x /bin/bash "$HOME"/autonomousPLAYER/automator.sh >/dev/null 2>&1 &
 
 sleep 10
 
