@@ -2,7 +2,7 @@
 #zenity --info --text "What is the most needed thing right now. Do you know that?"
 #trap "pgrep -fl 'm.sh'||{ echo exec terminator -p Transparent --geometry 800x600+5+25 -x /bin/bash $HOME/m.sh>.temp.sh;[ ! -f .autonaumasplayerinput ]||bash .temp.sh }" EXIT
 # . .bashrc
-source .functions
+source functions.sh
 # for debugging 
 # set -euo pipefail
 # IFS=$'\n\t' 
@@ -108,8 +108,8 @@ itsearched=""
 
 displaycurrentlist
 echo -e "\n\nDeleting empty folders." && find /2/Downloads/ -depth -type d -empty -delete
-mkdir -p /2/Downloads/0.ML
-mkdir -p /2/Downloads/1.SelfImprovement
+mkdir -p /2/Downloads/0.SelfImprovement
+mkdir -p /2/Downloads/1.ML
 mkdir -p /2/Downloads/2.Programming
 mkdir -p /2/Downloads/3.Investment
 mkdir -p /2/Downloads/4.SkillPolish
@@ -186,7 +186,7 @@ case $input in
 "nine")k="9";;
 esac
 
-[ $k -eq 9 ] && read -r -t 5 -p " Enter the number of pages (default 9):" k && k=${k:-9}
+[ $k -eq "9" ] && read -r -t 5 -p " Enter the number of pages (default 9):" k && k=${k:-9}
 
 	if [ "$k" -eq "$k" ] 2>/dev/null;
 		then
@@ -205,7 +205,7 @@ esac
 				deletepage "$(filename)"
 				fi
 			fi
-		[ -e "$(filename)" ] && echo "$(lengthofmovie "$(filename)"| head -1 |awk '{print $1"/600+1"}'|bc)""|$(date +%Y%m%d)|""$(filename)" | tee -a .readingstats
+		[ -e "$(filename)" ] && echo "$(lengthofmovie "$(filename)"| head -1 |awk '{print $1"/300+1"}'|bc)""|$(date +%Y%m%d)|""$(filename)" | tee -a .readingstats
 		deletefile "$(filename)"
 		else 
 		[ "$k" == ">" ] && true > .mplayer_delete
