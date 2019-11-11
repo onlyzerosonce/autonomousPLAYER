@@ -49,7 +49,7 @@ A) 	(bash ./android-studio/bin/studio.sh & );;
 b)	terminator & ;;
 d) 	read link; [ ! -z "$link" ] && wget "$link" && notify-send -u critical "Download complete" -i /3/pics/notify.jpeg;;
 c)	(nohup chromium-browser --start-maximized > /dev/null 2>&1 ) & ;;
-D) 	bash $HOME/.ShowCurrentWallp;;
+D) 	bash $HOME/autonomousPLAYER/.ShowCurrentWallp;;
 e) 	(scite &) ;;
 f) 	(firefox>/dev/null &) ;;
 g) 	(gimp&);;
@@ -64,7 +64,7 @@ exit
 ;;
 
 L) 	cat $0|grep -io '.*).*';;
-m) 	(exec terminator -x /bin/bash $HOME/m.sh &)  ;;
+m) 	(exec terminator -x /bin/bash $HOME/autonomousPLAYER/m.sh &)  ;;
 n) 	(firefox naukri.com&) ;;
 o) 	delvariableindel=$(zenity --title="Select a file to 0pen" --file-selection --filename="`cat .historyofopenedfiles|tail -1`");[ -n "$delvariableindel" ] && echo $delvariableindel>>.historyofopenedfiles;[ -n "$delvariableindel" ] && gnome-open "$delvariableindel" ;;
 O)	scite $0;;
@@ -92,7 +92,7 @@ z)	# rm -f .autonaumasplayerinput
 ;;
 "!") #	(touch .autonaumasplayerinput && nohup /bin/bash autonaumusPLAYER.sh >/dev/null 2>&1 & )  &
 rm /tmp/.auto-n-lock
-exec bash $HOME/startup.sh 
+exec bash $HOME/autonomousPLAYER/startup.sh 
 	ret=0;;
 ">")	
 	#touch -d "$(($RANDOM%10)) day" /2/Downloads/"`ls -t /2/Downloads/|tail -1`" 
