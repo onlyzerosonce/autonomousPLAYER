@@ -3,7 +3,7 @@
 #sudo apt-add-repository "deb ftp://ftp.debian.org/debian stable main contrib non-free"
 # apt-get update
 apt install elinks xtrlock p7zip-full
-apt install eog bc
+apt install eog bc zenity
 apt install flashplugin-installer
 apt install vim mplayer libnotify-bin 
 apt install espeak 
