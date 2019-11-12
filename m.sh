@@ -2,7 +2,7 @@
 #zenity --info --text "What is the most needed thing right now. Do you know that?"
 #trap "pgrep -fl 'm.sh'||{ echo exec terminator -p Transparent --geometry 800x600+5+25 -x /bin/bash $HOME/m.sh>.temp.sh;[ ! -f .autonaumasplayerinput ]||bash .temp.sh }" EXIT
 # . .bashrc
-source functions.sh
+source autonomousPLAYER/functions.sh
 # for debugging 
 # set -euo pipefail
 # IFS=$'\n\t' 
