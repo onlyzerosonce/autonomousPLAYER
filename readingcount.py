@@ -9,8 +9,8 @@ dailypagelimit=10
 
 today=int(datetime.today().strftime('%Y%m%d'))
 
-d=pd.read_csv('.readingstats',sep='|')
-todaydata=d[d['Date']==today]
+todaydata=pd.read_csv('.readingstats',sep='|',)
+todaydata=todaydata[todaydata['Date']==today]
 
 todaydata['Category']=todaydata['FileName'].apply(lambda x:x.replace('/2/Downloads/',''))
 todaydata['Category']=todaydata['Category'].apply(lambda x:x.split('.')[0])
