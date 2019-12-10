@@ -2,7 +2,18 @@
 #zenity --info --text "What is the most needed thing right now. Do you know that?"
 #trap "pgrep -fl 'm.sh'||{ echo exec terminator -p Transparent --geometry 800x600+5+25 -x /bin/bash $HOME/m.sh>.temp.sh;[ ! -f .autonaumasplayerinput ]||bash .temp.sh }" EXIT
 # . .bashrc
-source autonomousPLAYER/functions.sh
+
+if  [[ $1 = "-d" ]]; then
+        function clear1(){
+        echo 'debug mode is on so not clearing output'
+        }
+else
+        function clear1(){
+        clear
+        }
+fi
+
+source functions.sh
 # for debugging 
 # set -euo pipefail
 # IFS=$'\n\t' 
@@ -68,13 +79,13 @@ waittillinputorinterrupt1(){
 
 function delfirstandrefillifempty(){
 sed -i '1d' .mplayer_delete_parent
-[ ! -s .mplayer_delete_parent ]&&python3 "$HOME"/autonomousPLAYER/readingcount.py
+[ ! -s .mplayer_delete_parent ]&&python readingcount.py
 echo
 }
 
 
 function doyouwantthis(){
-clear
+clear1
 head -6 .mplayer_delete_parent
 k=""
 read -r -t 3 -s -n1 -p "                   skip it by >" k
@@ -94,7 +105,7 @@ k=""
 read -r -t 3 -s -n1 -p "	 		or leftist for search? " k
 	while [ -n "$k" ] && grep -q "$k" left.kb 2>/dev/null
 	do
-		clear 
+		clear1 
 		read -r -p "Enter the expression:" expression
 		expression=${expression// /\.*}
 		echo "Searching the Item"
@@ -136,7 +147,7 @@ deletefile(){
 		timeout 5 zenity --notification --text="Deleteing the file $(filename)" 2>/dev/null  &
 		echo "Deleteing the file $(filename)"
 		backupfile "move"
-		clear  
+		clear1  
 		timeout 5 zenity --notification --text="Deleted the file $(filename)" 2>/dev/null &
 		echo "Deleted the file $(filename)"
 		displayspaceleft
@@ -153,7 +164,7 @@ xclipselectionnew="$(xclip -o 2>/dev/null)"
 
 get_choices_and_process(){
 	# backupfile
-	clear 
+	clear1 
 	k=""
 	echo "$CurrentFile"
 input=""
@@ -217,7 +228,7 @@ esac
 ###############################################################################
 while :
 do
- clear 
+ clear1 
 # refreshplaylist
 n=$(wc -l <.mplayer_delete)
 tail -"$n" .mplayer_delete >.mplayer_delete_display
@@ -231,7 +242,7 @@ tail -"$n" .mplayer_delete >.mplayer_delete_display
 displaycurrentlist
 displaycurrentitem
 
-clear  
+clear1  
 # bash autobrowse.sh
 
 	mimetype -b "$CurrentFile" | grep -iEq 'audio' || wmctrl -s 2
