@@ -5,7 +5,7 @@ This is a temporary script file.
 import pandas as pd 
 from datetime import datetime
 
-dailypagelimit=10
+dailypagelimit=4
 
 today=int(datetime.today().strftime('%Y%m%d'))
 
@@ -27,11 +27,18 @@ dic={'Category':[0,1,2,3,4,5],'Folder':['/2/Downloads/0.SelfImprovement'
      ,'/2/Downloads/5.Entertainment']}
 
 folder=pd.DataFrame(dic)
-folder['dailypagelimit']=folder['Category'].apply(lambda x:(x+1)*dailypagelimit)
-final=pd.merge(folder,todaydata1,how='outer',on='Category')
-final['Pages'] = final.Pages.fillna(0)
 
-todaydata4=final['Category'][final['Pages']<=final['dailypagelimit']].min()
+i = 0
+while i < 1:
+	folder['dailypagelimit']=folder['Category'].apply(lambda x:(x+1)*dailypagelimit)
+	final=pd.merge(folder,todaydata1,how='outer',on='Category')
+	final['Pages'] = final.Pages.fillna(0)
 
-final['Folder'][folder['Category']==todaydata4].to_csv ('.mplayer_delete_parent', index = False,header=False)
+	todaydata4=final['Category'][final['Pages']<final['dailypagelimit']].min()
+	t=final['Folder'][folder['Category']==todaydata4]
+	if t.count()>0:
+		i = 1
+	else:
+		dailypagelimit=2*dailypagelimit		
 
+t.to_csv ('.mplayer_delete_parent', index = False,header=False)
