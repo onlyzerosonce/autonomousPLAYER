@@ -3,6 +3,8 @@ Spyder Editor
 This is a temporary script file.
 """
 import pandas as pd 
+import numpy as np
+import os
 from datetime import datetime
 
 dailypagelimit=4
@@ -19,14 +21,23 @@ todaydata=todaydata.drop(['FileName','Date'],axis=1)
 
 todaydata1=todaydata.groupby('Category').sum().reset_index()
 
-dic={'Category':[0,1,2,3,4,5],'Folder':['/2/Downloads/0.SelfImprovement'
+folderlist=['/2/Downloads/0.SelfImprovement'
      ,'/2/Downloads/1.ML'
      ,'/2/Downloads/2.Programming'
      ,'/2/Downloads/3.Investment'
      ,'/2/Downloads/4.SkillPolish'
-     ,'/2/Downloads/5.Entertainment']}
+     ,'/2/Downloads/5.Entertainment']
+
+folderlist1=[]
+for dirName in folderlist:
+	if len(os.listdir(dirName)) != 0 and os.path.exists(dirName):
+		folderlist1.append(dirName)
+folderlist1.sort()
+
+dic={'Folder':folderlist1}
 
 folder=pd.DataFrame(dic)
+folder['Category'] = np.arange(len(folder))
 
 i = 0
 while i < 1:
